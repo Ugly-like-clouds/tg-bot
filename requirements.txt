@@ -1,0 +1,8 @@
+aiogram
+langchain
+langchain-core
+langchain-openai
+langchain-community
+openai
+requests
+python-dotenv
