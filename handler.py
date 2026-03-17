@@ -15,11 +15,10 @@ from aiogram.types import Update, Message
 from openai import OpenAI
 
 # Установите ключи
-os.environ["OPENAI_API_KEY"] = "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"
-client = OpenAI(api_key="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")
 load_dotenv()
-OPENAI_API_KEY = "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"
-TOKEN = "8742326422:AAGa8Dr9mGg-VCUhF1bq2HmNMUtPXr8jY58"
+# Установите ключи
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+TOKEN = os.environ.get('TOKEN')
 
 bot = Bot(TOKEN)
 dp = Dispatcher()
