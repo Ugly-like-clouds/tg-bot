@@ -9,7 +9,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
-
+from cloudflare_workers_types import Request, Response
 from aiogram import Bot, Dispatcher
 from aiogram.types import Update, Message
 from openai import OpenAI
@@ -75,3 +75,12 @@ def handler(event: dict, context) -> dict:
     Запускает асинхронный обработчик через asyncio.
     """
     return asyncio.run(async_handler(event, context))
+
+async def handle_deploy__request(request: Request) -> Response:
+    # Your Telegram bot logic here
+    return Response("Hello from Cloudflare Workers!")
+export default {
+  async fetch(request: Request): Promise<Response> {
+    return await handle_request(request);
+  }
+}
